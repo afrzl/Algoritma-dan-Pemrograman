@@ -14,7 +14,7 @@ type
 var
     i, awalbulan: hari1pekan;
     j: haribulan;
-    tahun, x, y, k: integer;
+    tahun, x, y: integer;
     l: Bulan;
 
 function CetakBulan(tahun: integer; namaBulan: Bulan; hariPertama: hari1pekan): hari1pekan;
@@ -29,7 +29,6 @@ begin
     end;
 
     y := 4 + ((ord(namaBulan) div 2) * BARIS_BULAN);
-    TextColor(White);
     if ord(namaBulan) mod 2 = 0 then x := 1 else x := LEBAR * 8;
     gotoxy(x, y);
     TextColor(Blue);
@@ -46,12 +45,14 @@ begin
 
     for j := 1 to jumlahHari do begin
         TextColor(White);
-        if (x=7) or (x=15) then begin
-            if ord(namaBulan) mod 2 = 0 then x := 0 else x := 8;
-            y += 1;
+        if ((x=0) or (x=7)) or ((x=8) or (x=15)) then begin
             TextColor(Red);
+            if (X=7) or (x=15) then begin 
+                if ord(namaBulan) mod 2 = 0 then x := 0 else x := 8;
+                y += 1;
+            end;
         end;
-        gotoxy(LEBAR*x+1,y); write(j:3);
+        gotoxy(LEBAR * x + 1, y); write(j:3);
         x += 1;
         
         if hariPertama = Sabtu then hariPertama := Minggu else hariPertama := succ(hariPertama);;
@@ -62,13 +63,13 @@ end;
 begin
     clrscr;
     TextColor(White);
+    writeln('>> Zoom out terminal terlebih dahulu agar calender tergenerate sempurna');
     write('Masukkan tahun: '); readln(tahun);
     write('Hari pertama awal bulan: '); readln(awalbulan);
     writeln;
 
-    for l := Januari to September do begin
+    for l := Januari to Desember do begin
         awalbulan := CetakBulan(tahun, l, awalbulan);
-        if ord(l) mod 2 = 1 then writeln;
     end;
 
     readln

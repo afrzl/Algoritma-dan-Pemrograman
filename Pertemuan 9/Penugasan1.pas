@@ -1,10 +1,9 @@
-Program Contoh9F;
+Program Penugasan1;
 uses crt;
 
 const
     BARIS_BULAN = 8;
     LEBAR = 7;
-
 
 type 
     Bulan = (Januari, Februari, Maret, April, Mei, Juni, Juli, Agustus, September, Oktober, November, Desember);

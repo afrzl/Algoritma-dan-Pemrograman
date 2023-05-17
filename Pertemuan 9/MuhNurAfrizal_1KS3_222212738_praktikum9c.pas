@@ -10,9 +10,10 @@ uses crt;
 
 var
     menu: byte;
-    x, y, hasil: longInt;
+    x, y: integer;
+    hasil: longInt;
 
-function faktorial(angka: longInt):longInt;
+function faktorial(angka: integer):longInt;
 begin
     if angka = 0 then
         faktorial := 1
@@ -20,12 +21,12 @@ begin
         faktorial := angka * faktorial(angka - 1);
 end;
 
-function permutasi(x, y: longInt):longInt;
+function permutasi(x, y: integer):longInt;
 begin
     permutasi := faktorial(x) div faktorial(x - y);
 end;
 
-function kombinasi(x, y: longInt):longInt;
+function kombinasi(x, y: integer):longInt;
 begin
     kombinasi := permutasi(x, y) div faktorial(y);
 end;

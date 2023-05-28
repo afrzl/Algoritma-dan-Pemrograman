@@ -20,20 +20,20 @@ begin
     writeln('Matriks A');
     for i:=1 to 3 do begin
         for j:=1 to 3 do
-            write(a[i,j],' ');
+            write(a[i,j]:3,' ');
             writeln;
         end;
     writeln('Matriks B');
     for i:=1 to 3 do begin
         for j:=1 to 3 do
-            write(b[i,j],' ');
+            write(b[i,j]:3,' ');
         writeln;
     end;
     writeln('Matriks C');
     for i := 1 to 3 do begin
         for j := 1 to 3 do begin
             c[i][j] := a[i][j] + b[i][j];
-            write(c[i, j], ' ');
+            write(c[i, j]:3, ' ');
         end;
         writeln;
     end;
